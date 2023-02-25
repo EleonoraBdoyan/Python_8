@@ -1,0 +1,76 @@
+# Տրված է list, որը պարունակում է 1-ից n ամբողջ թվերը(1-ը ներառյալ)։ Գրել ֆունկցիա, որը որպես
+# պարամետր կստանա այդ list-ը և կգտնի բացակայող թիվը։ Բացակայող թիվ չգտնելու դեպքում վերադարձնել None։
+
+
+def find_num(num_list):
+    if all([num_list[i+1] - num_list[i] == 1 for i in range(len(num_list) -1)]):
+        return None
+    else:
+        for i in range(len(num_list) - 1):
+            if num_list[i+1] - num_list[i] != 1:
+                return num_list[i] +1
+
+print(find_num([1,2,3,4,6,7,8]))
+
+
+
+# Իրականացնել ֆունկցիա (add_exictment), որը որպես պարամետր կստանա string-երից բաղկացած list և կավելացնի
+# բացականչական նշան (!) յուրաքանչյուր string-ի վերջում։ Ծրագիրը պետք է փոփոխի սկզբնական
+# list-ը և ոչինչ չվերադարձնի։
+
+def add_excitement(str_list):
+    for i in range(len(str_list)):
+        str_list[i] += "!"
+    print(str_list)
+
+
+
+# Գրել sum_digits անունով ֆունկցիա, որը վերադարձնում է իրեն փոխանցված ամբողջ թվի թվանշանների գումարը:
+option 1
+def sum_digits(int_num):
+    count = 0
+    for i in str(int_num):
+        count += int(i)
+    return count
+    
+option 2
+def sum_digits(int_num):
+    return sum([int(i) for i in str(int_num)])
+
+# Գրել is_sorted անունով ֆունկցիա, որը որպես պարամետր կստանա list և կվերադարձնի True, եթե ցուցակը
+# սորտավորված է և False, հակառակ դեպքում
+
+def is_sorted(some_list):
+    if (all([some_list[i+1] >= some_list[i] for i in range(len(some_list) -1 )]) or
+       all([some_list[i + 1] <= some_list[i] for i in range(len(some_list) - 1)])):
+        return True
+    return False
+
+
+# Իրականացնել ֆունկցիա, որը որպես պարամետր կստանա երկու list կմվիավորի դրանք։ List-երը արդեն իսկ սորտավորված են։
+
+def united_list(list_1, list_2):
+    sorted_list = []
+    for i in range(len(list_1)):
+        if list_1[i] <= list_2[i]:
+            sorted_list.append(list_1[i])
+            sorted_list.append((list_2[i]))
+        else:
+            sorted_list.append(list_2[i])
+            sorted_list.append((list_1[i]))
+    return sorted_list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
